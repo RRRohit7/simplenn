@@ -10,7 +10,6 @@ class Data:
     def __add__(self, other):
         other = other if isinstance(other, Data) else Data(other, op='const')   
         output = Data(self.value + other.value, (self, other), '+')
-        x = 1
         def backward():
             self.grad = output.grad
             other.grad = output.grad
